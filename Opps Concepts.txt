@@ -1,0 +1,64 @@
+# Inheritance :- First we will see what is inheritance , So extending one class into another class we call it as a inheritance.
+                 So we create a base class to intialised webdriverWaits , webdriver Interface , property file ,loggers, reports, 
+                 so we extend the base in our test class. In this case, extending one class into another class is an example of implementing Inheritance
+public class BaseClass {
+	public static WebDriver driver;
+	 public static boolean bResult;
+	 public BaseClass(WebDriver driver){
+		 BaseClass.driver = driver;
+		 BaseClass.bResult = true;
+		 }
+}
+============================================================================================================================================================
+# Interface :-As we all know, WebDriver itself is an Interface. So we declarted in our framework like WebDriver driver = new Chromedriver(); 
+              Here we are initializing chrome browser using Selenium WebDriver. It means we are creating a reference variable (driver) of the 
+              interface (WebDriver) and creating an Object.So this is the best exaple of an Interface. 
+============================================================================================================================================================
+# Absatraction :- As we are aware, Abstraction is a process of hiding the implementation details from the user and showing only relevant details to them.
+                  It also helps to reduce programming complexity and effort.So,In our Framework whenever we Use the Page object Model, 
+                  we wrote all the locators in the page class and use this locator in our test it means we are hiding our implementation from the user 
+                  this is a simple example of using abstraction in the framework.
+
+public class login_page_object extends BaseClass{
+	
+	public login_page_object(WebDriver driver) {
+		
+		super(driver);
+		}
+	@FindBy(how=How.XPATH, using="//a[contains(text(),'Sign in')]")
+	public static WebElement signInBtn;
+	
+	@FindBy(how=How.XPATH, using="//input[@id='email' and @name='email']")
+	public static WebElement emailTxtBox;
+	
+	@FindBy(how=How.XPATH, using="//input[@id='passwd']")
+	public static WebElement pswdTxtBox;
+	
+	@FindBy(how=How.XPATH, using="//button[@id='SubmitLogin']//span")
+	public static WebElement submitBtn;
+	
+	@FindBy(how=How.XPATH, using="//a[@title='View my customer account']/span")
+	public static WebElement usernameLnk;
+
+}
+===========================================================================================================================================================
+# Encapsulation :- Encapsulation is a mechanism of wrapping data (variables) and code together as a single unit. 
+                   All the classes which we write in our automation framework are an example of Encapsulation. 
+                   For e.g In Page object model classes, in which we declare the WebElement locator using @FindBy and initialization of this data members 
+                   will be done using Constructor to utilize those in test methods. Example same as above
+==========================================================================================================================================================
+# Polymorphism :- It means having many forms.So Polymorphism allows us to perform a single action in different ways.
+                  Polymorphism can be achieved in two ways:Methos Overloading & Method Overriding
+# Method Overloading :- If a class has multiple methods having the same name but different in parameters, it is known as Method Overloading.
+                        In Implicit wait when we use different time stamps such as SECONDS, MINUTES, HOURS, etc is one of the possible examples of method overloading.
+driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+driver.manage().timeouts().implicitlyWait(30, TimeUnit.MINUTES);
+driver.manage().timeouts().implicitlyWait(30, TimeUnit.HOURS);
+
+# Method Overriding :-If the subclass or child class has the same method as declared in the parent class, it is known as method overriding in Java.
+                      Whenever we use a method that was already implemented/written in another class by changing its parameters this is the example of method overriding.
+                      So in our framework we have we have implimented findelement() method which is already present in child & parent class but we are
+                      passing diff parameters over there like findelement(By.Id) or findelement(By.xpath) or findelement(By.className) 
+============================================================================================================================================================
+
+ 
