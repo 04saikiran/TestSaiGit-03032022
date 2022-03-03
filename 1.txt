@@ -1,0 +1,250 @@
+use instorecard
+
+select * from OfferExtensionOffer
+select * from retailer where companyname like '%mark%'
+select * from retailer where retailerguid='3DB01428-6337-4A20-8561-3DA029DC1E15'
+select * from icsuser where rvguid='3DB01428-6337-4A20-8561-3DA029DC1E15'
+select * from store where retailerguid='3E7C53EB-EDAF-46CB-B6CB-61478A032EFD' and status='A'
+select * from product where retailerguid='3E7C53EB-EDAF-46CB-B6CB-61478A032EFD' and status='A' order by UpdateDateTime desc
+
+select * from fileimport where retailerguid='3DB01428-6337-4A20-8561-3DA029DC1E15' and filename like '%.zip%' and status='S' order by startdatetime desc
+select top 10 * from fileimport where retailerguid='3DB01428-6337-4A20-8561-3DA029DC1E15' order by startdatetime desc
+
+select * from EventDefinition where retailerguid='3DB01428-6337-4A20-8561-3DA029DC1E15'
+select * from RegisteredCard where alternatecardidentifier='UK_Digital040220161'
+
+select * from profiletargetrealtimeshoppers where shopperid=23533202
+select * from shopperoffer where shopperid=23533217
+
+select * from RedemptionPointState where retailerguid='3DB01428-6337-4A20-8561-3DA029DC1E15' and shopperid = 22832716
+
+select * from PointGroup where retailerguid='43AAD84C-C789-4892-86D0-E9423CD3EFD9'
+select * from Lifestyle
+
+select * from retailerconfig where retailerguid = '653BFD2B-8DD5-41EB-80C4-FAF5489CF4D3'
+select * from adminconfiguration where retailerguid='CECA1FB2-28D6-481A-B032-191938BA5F4A' and keyname='DisableTenderReturnsProcessing'
+
+select * from dataintegrationerror
+select * from fileimporterrordetail
+
+
+SELECT * FROM TableIdentityRange WITH (NOLOCK) WHERE tablename = 'OrderDetail'
+SELECT * FROM TableIdentityRangeOverride WITH (NOLOCK) WHERE tablename = 'OrderDetail'
+
+select * from shopperoffer where shopperid=22832716
+select * from ShopperOfferEligibility
+select * from ShopperOfferEligibilityDefinition
+select * from ShopperOfferEligibilityDetail where offerid=2576
+select * from EligibilityParameter
+
+select * from OfferDetailHistory
+select * from OfferExtensionOffer
+
+select * from CustomAttributeLookupValue where retailerguid='3DB01428-6337-4A20-8561-3DA029DC1E15' and referenceid=22936644
+select * from CustomAttributeDefinition where retailerguid='3DB01428-6337-4A20-8561-3DA029DC1E15'
+select * from CustomAttributeDateTimeValue where ReferenceId=22936782
+select * from CustomAttributelookupValue where ReferenceId=22936644
+select * from customattributenumericvalue where referenceid =22936792
+
+select * from RegisteredCard where shopperid =22937492
+select * from shopperkey where retailerguid='3DB01428-6337-4A20-8561-3DA029DC1E15' and LoyaltyMember=0
+select * from OfferExtensiondefintion 
+
+select * from profiletargetrealtimeshoppers where shopperid=22936729
+select * from ProfileTargetShoppers where shopperid=22937956
+
+select * from OfferExtension where OfferExtensionid=150
+select * from OfferExtensionOffer where offerid=11600
+
+select * from shopperbalance with (nolock)  where shopperid=22937491
+select * from shopperpointbalance with (nolock) where shopperid=22937491 
+select * from redemption with (nolock) where shopperid=22937491
+select * from orderheader with (nolock) where shopperid=22937491
+select * from orderdetail with (nolock) where shopperid=22937491
+SELECT * FROM qualifyingorderitem with (nolock) where shopperid=22937491
+
+select * from ordertender where shopperid in (151317391,151317393)
+
+select * from getofferdetails where offerid in (9105,9106)
+select * from pointtype where retailerguid = 'CECA1FB2-28D6-481A-B032-191938BA5F4A'
+
+select * from Event_mns WITH (NOLOCK) where EventId =73062702
+select * from EventMetaData_mns WITH (NOLOCK) where Retailereventid ='201609091110'
+
+SELECT * FROM redemption  WHERE ShopperId IN (23533309) 
+AND RedemptionId IN (SELECT RedemptionId FROM qualifyingorderItem  WHERE ShopperId IN (23533309) AND  Orderitemid IN (SELECT Orderitemid FROM orderitem WHERE ShopperId IN (23533309) AND orderheaderid = 1989450))
+ORDER BY RedemptionId DESC
+
+
+SELECT * from  redemptionreversal (nolock) where originalredemption=22123275 
+
+select Top 10 * from dbo.offerdatachanges with (NoLOCK)
+select Top 10 * from dbo.shopperdatachanges_pgskii with (NoLOCK)
+
+select * from RedemptionPointState where retailerguid='CECA1FB2-28D6-481A-B032-191938BA5F4A' and shopperid = '23533185'
+select * from pointgroup where  retailerguid = '58E5328E-A526-40AC-AD32-62AECF34909E'
+select * from pointtype where  retailerguid = '58E5328E-A526-40AC-AD32-62AECF34909E'
+select * from pointconversion  where  retailerguid = '58E5328E-A526-40AC-AD32-62AECF34909E'
+ 
+SELECT * FROM RedemptionReversal WHERE OriginalRedemption IN (22125426)
+select * from QualifyingOrderTender where shopperid=23533319 order by qualifyingordertenderid desc 
+SELECT * FROM redemption where shopperid=23533319 order by redemptionid desc
+select * from qualifyingorderitem
+select * from reversingorderitem
+
+
+SELECT * FROM dbo.ShopperBalance (NOLOCK) WHERE ShopperId='42680057'
+SELECT * FROM ShopperPointBalance (NOLOCK) WHERE ShopperId='42680057'
+SELECT SUM(PointsEarned) FROM dbo.Redemption (NOLOCK) WHERE ShopperId='42680057' 
+SELECT SUM(Amount) FROM dbo.ShopperJournal (NOLOCK) WHERE ShopperId='42680057' 
+
+select top 3 * from ReversingBasketProfileOrderHeader
+select top 3 * from BasketProfileOrderHeader
+
+select top 10 * from batchProcessStatus where RetailerGuid='CECA1FB2-28D6-481A-B032-191938BA5F4A' order by BatchProcessId Desc
+select top 10  * from processbatchbase where RetailerGuid='CECA1FB2-28D6-481A-B032-191938BA5F4A' order by processbatchid desc
+
+select top 10  * from ProcessBatch where RetailerGuid='CECA1FB2-28D6-481A-B032-191938BA5F4A'
+
+select getdate()
+exec sp_columns retailer
+
+select * from ApiImportQueue
+
+select * from redemption as r (nolock)
+join qualifyingorderItem as qoi (nolock)
+on r.redemptionid = qoi.redemptionid
+join orderitem as oi (nolock)
+on oi.orderitemid = qoi.orderitemid
+where oi.fileimportid = 201380
+order by processdatetime DESC
+
+select * from program where retailerguid='CECA1FB2-28D6-481A-B032-191938BA5F4A'
+select * from tierprogram where retailerguid='CECA1FB2-28D6-481A-B032-191938BA5F4A'
+select * from tier
+select * from programmembership with(nolock) where shopperid = 23137926
+select * from shoppertiermovementlog where shopperid = 23137926
+
+select * from ExternalApiQueue where shopperid=23022862
+
+select * from qualifyingevent where shopperid=33164443
+select * from qualifyingeventmetadata where shopperid=33164442
+
+
+select * from getofferdetails where offerid=2424 
+select * from tableidentityrange
+select * from [dbo].[TableIdentityRangeOverride]
+
+SELECT * FROM dbo.OrderDetail WITH (NOLOCK)	WHERE OrderDetailId > 0	 AND CreateDateTime > '2015-11-01' Order BY OrderDetailId DESC
+SELECT * FROM dbo.QualifyingOrderItem WITH (NOLOCK) WHERE  OrderItemId > 0	Order BY OrderItemId DESC
+SELECT * FROM dbo.ReversingOrderItem WITH (NOLOCK) ORDER BY QualifyingOrderItemId DESC 
+
+SELECT * FROM TableIdentityRangeOverride WITH (NOLOCK) WHERE tablename = 'OrderDetail'
+INSERT INTO TableIdentityRangeOverrideVALUES('db','OrderDetail',-25,100)                                                                                                                             
+SELECT * FROM dbo.ProcessBatchBase WITH (NOLOCK) ORDER BY 1 Desc
+
+select * from sysobjects where name like '%pivot_mns%'
+select * from VW_OfferExtensionOfferPivot_MNS where expirationdays is not NULL
+select * from shopperoffer A join VW_OfferExtensionOfferPivot_MNS B on A.OfferId=B.OfferId where shopperid=23505035 
+
+sp_helptext GetIntegerRangeForOrderDetailOffersProc;
+sp_spaceused 'tablename'
+
+select * from lookupcode where retailerguid='3e7c53eb-edaf-46cb-b6cb-61478a032efd'
+
+Insert into ProcessBatchBase
+select  processstartdatetime, processenddatetime, referenceid, referencetype, firstsourceid, lastsourceid, retailerguid
+from ProcessBatchbase where ProcessBatchId = 11851603
+
+Select top 5 * from GenericNonQualification  with (Nolock)  order by logdatetime desc option (maxdop 1);
+select * from [dbo].[NonQualificationReason]
+
+select  top 10 * from batchprocessstatus with (nolock) order by 1 asc option (maxdop 1)
+
+select top 5 * from ProcessBatchBase with (nolock) order by 1 desc
+
+select * from ProfileTarget where ReferenceId=12698
+
+select shopperid from shopper with (nolock) where shopperid not in (select shopperid from orderheader with (nolock)) and ProfileCreateDateTime between '2016-01-01 02:47:49.303' and '2016-02-15 02:47:49.303' and Status = 'A' and RetailerGuid='3DB01428-6337-4A20-8561-3DA029DC1E15'
+
+select top 10 * from logs with (nolock)
+
+
+select top 10 * from OrderDetail with (nolock) where orderdetailid < 0 order by 1 desc
+
+select count(*) from OrderDetail with (nolock) where orderdetailid between -2143155732 and -1
+
+select sb.ShopperId,sb.PointBalance from ShopperPointBalance as sb  join shopper s on sb.ShopperId=s.ShopperId where s.Status='A' and s.RetailerGUID='B7E3C8AA-A3C5-4822-AC52-F15F49DE9330' and sb.PointBalance > 500 order by s.ShopperId desc
+
+select top 100 fs.SuccessCount, DATEDIFF(MINUTE, fi.StartDateTime,fi.EndDatetime) as minutes, fi.* from dbo.fileimport fi with (nolock)
+INNER JOIN dbo.filestats fs with (nolock) on fi.fileimportid = fs.fileimportid
+where fi.retailerguid='CECA1FB2-28D6-481A-B032-191938BA5F4A'
+and fi.filename like '%k_rewards_%'
+order by fi.fileimportid desc
+
+select top 1 * from [archivepurge].[ApplicationLog] where configid in (select configid from archivepurge.Archive_Purge_Config where tablename = 'Redemption')
+select max(createdate) from [archivepurge].[ApplicationLog]  where stepname like '%ARCHIVE (ReversingOrderTenderDetail)%'
+select * from archivepurge.Archive_Purge_Config_Params
+
+select top 10 * from apiimportqueue where retailerguid='CECA1FB2-28D6-481A-B032-191938BA5F4A' order by rowid desc -- Kohls API
+
+select * from OfferTargetedShopperCounts as s inner join Offer as o on o.offerid=s.offerid where o.retailerguid='3DB01428-6337-4A20-8561-3DA029DC1E15'
+select * from dbo.PipelineMessageDataTable
+SELECT TOP 100 * 
+FROM Logs WITH (NOLOCK)
+-- WHERE retailerguid = '3DB01428-6337-4A20-8561-3DA029DC1E15'
+ORDER BY LogId desc
+
+-- POS 3 MNS offer target
+select * from shopper where retailershopperid = 'UK_DIGITAL20200424008'
+select * from RealTimeTarget where shopperid = 38648092
+select * from shopperoffereligibilitydetail where shopperid = 38648092
+
+use audit
+
+select * from UserActions
+select top 10 * from UserActionsMetrics order by rowid desc
+
+
+
+select * from shopperbalance with (nolock)  where shopperid=23388164
+select * from shopperpointbalance with (nolock) where shopperid=23388164 
+select * from redemption with (nolock) where shopperid=23388168 order by referenceid desc
+select * from orderheader with (nolock) where shopperid=23388168
+select * from orderdetail with (nolock) where shopperid=23388168 order by createdatetime desc
+SELECT * FROM qualifyingorderitem with (nolock) where shopperid=23388166
+
+select * from shopperoffer where shopperid=23388167
+select * from redemption with (nolock) where ReferenceId=20316 order by 1 desc
+
+select * from shopper with  (nolock) where shopperid=23388140
+select * from orderdetail with (nolock) where shopperid=23388138 order by createdatetime desc
+
+select * from program where retailerguid='3E7C53EB-EDAF-46CB-B6CB-61478A032EFD'
+select * from tier
+select * from tierprogram where retailerguid='3E7C53EB-EDAF-46CB-B6CB-61478A032EFD'
+select * from programmembership with(nolock) where shopperid = 23388132 order by lastevaluationdatetime desc
+select * from shoppertiermovementlog where shopperid = 23388168
+
+select * from shoppertiermovementlog where shopperid = 23388167
+
+select * from orderdetail with (nolock) where shopperid=23388161 order by createdatetime desc
+select * from orderitem with (nolock) where shopperid=23388161 order by 1 desc
+
+select * from profiletargetrealtimeshoppers where shopperid=23388168
+select * from ProfileTargetShoppers where shopperid=23388168
+
+select * from profiletargetrealtimeshoppers where shopperid=23388147
+
+
+select * from CustomAttributeDefinition where retailerguid='3E7C53EB-EDAF-46CB-B6CB-61478A032EFD'
+select * from CustomAttributeDateTimeValue where ReferenceId=23388132
+select * from CustomAttributelookupValue where ReferenceId=23388150
+select * from customattributenumericvalue where referenceid =23388147
+
+select top 5 * from fileexport where retailerguid='3E7C53EB-EDAF-46CB-B6CB-61478A032EFD' order by 1 desc
+select top 5 * from fileimport where retailerguid='3E7C53EB-EDAF-46CB-B6CB-61478A032EFD' order by 1 desc
+
+select top 100  * from processbatchbase where RetailerGuid='3E7C53EB-EDAF-46CB-B6CB-61478A032EFD' and processBatchid = 57293487
+select top 100  * from processbatchbase where RetailerGuid='3E7C53EB-EDAF-46CB-B6CB-61478A032EFD' and ReferenceId in (20340) order by processbatchid desc
+select getdate()
